@@ -4,7 +4,7 @@ import Context from "./Products/context";
 import "../src/addProduct.css";
 
 const AddProduct = ({ onCreate }) => {
-  const { SetActiveForm } = useContext(Context);
+  const { setActiveForm } = useContext(Context);
 
   function submitHandler(event) {
     event.preventDefault();
@@ -21,11 +21,11 @@ const AddProduct = ({ onCreate }) => {
       onCreate(product);
       setName("");
       setImg("");
-      SetCount("");
-      SetWidth("");
-      SetHeight("");
-      SetWeigth("");
-      SetActiveForm(false);
+      setCount("");
+      setWidth("");
+      setHeight("");
+      setWeigth("");
+      setActiveForm(false);
     } else {
       alert("Invalid Data. Please fill all field");
     }
@@ -47,19 +47,19 @@ const AddProduct = ({ onCreate }) => {
   const cancelCreating = () => {
     setName("");
     setImg("");
-    SetCount("");
-    SetWidth("");
-    SetHeight("");
-    SetWeigth("");
-    SetActiveForm(false);
+    setCount("");
+    setWidth("");
+    setHeight("");
+    setWeigth("");
+    setActiveForm(false);
   };
 
   const [name, setName] = useState("");
   const [img, setImg] = useState("");
-  const [count, SetCount] = useState();
-  const [width, SetWidth] = useState();
-  const [heigth, SetHeight] = useState();
-  const [weigth, SetWeigth] = useState("");
+  const [count, setCount] = useState();
+  const [width, setWidth] = useState();
+  const [heigth, setHeight] = useState();
+  const [weigth, setWeigth] = useState("");
 
   return (
     <div className="create">
@@ -81,27 +81,27 @@ const AddProduct = ({ onCreate }) => {
           placeholder="count"
           type="number"
           value={count}
-          onChange={(event) => SetCount(event.target.value)}
+          onChange={(event) => setCount(event.target.value)}
         />
         <br />
         <input
           placeholder="width"
           type="number"
           value={width}
-          onChange={(event) => SetWidth(event.target.value)}
+          onChange={(event) => setWidth(event.target.value)}
         />
         <br />
         <input
           placeholder="height"
           type="number"
           value={heigth}
-          onChange={(event) => SetHeight(event.target.value)}
+          onChange={(event) => setHeight(event.target.value)}
         />
         <br />
         <input
           placeholder="weigth"
           value={weigth}
-          onChange={(event) => SetWeigth(event.target.value)}
+          onChange={(event) => setWeigth(event.target.value)}
         />
         <br />
         <button style={{ margin: "10px" }} type="submit">

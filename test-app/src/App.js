@@ -4,22 +4,9 @@ import Context from "./Products/context";
 import AddProduct from "../src/addProduct";
 
 function App() {
-  const [activeForm, SetActiveForm] = useState(false);
+  const [activeForm, setActiveForm] = useState(false);
 
-  const [products, setProducts] = React.useState([
-    {
-      id: 1,
-      imageUrl: "https://images.drive.ru/i/0/5f6c5369ec05c4fe2700000f.jpg",
-      name: "tesla",
-      count: "100",
-      size: {
-        width: 200,
-        heigth: 200,
-      },
-      weigth: "200g",
-      comment: ["good"],
-    },
-  ]);
+  const [products, setProducts] = React.useState([]);
 
   useEffect(() => {
     setProducts(
@@ -61,7 +48,7 @@ function App() {
   }
 
   return (
-    <Context.Provider value={{ removeProduct, SetActiveForm, updateProduct }}>
+    <Context.Provider value={{ removeProduct, setActiveForm, updateProduct }}>
       <div className="wrapper">
         <h1>Product List</h1>
         {activeForm ? (
@@ -69,7 +56,7 @@ function App() {
         ) : (
           <button
             style={{ marginBottom: "15px" }}
-            onClick={() => SetActiveForm(true)}
+            onClick={() => setActiveForm(true)}
           >
             Create product
           </button>
