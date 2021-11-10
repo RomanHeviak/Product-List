@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import Context from "./context";
 
@@ -38,7 +38,7 @@ const Product = ({ product }) => {
           <strong>{product.name}</strong>
         </div>
         <div style={styles.head}>
-          <img src={product.imageUrl} />
+          <img src={product.imageUrl} alt='product'/>
           <button className={"rm"} onClick={() => removeProduct(product.id)}>
             &times;
           </button>
